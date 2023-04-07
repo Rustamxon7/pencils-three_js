@@ -19,6 +19,30 @@ import {
 const Customizer = () => {
   const snap = useSnapshot(state);
 
+  const [file, setFile] = useState('');
+
+  const [prompt, setPrompt] = useState('');
+  const [generatingImg, setGeneratingImg] = useState(false);
+
+  const [activeEditorTab, setActiveEditorTab] = useState('');
+  const [activeFilterTab, setActiveFilterTab] = useState({
+    logoShirt: true,
+    stylishShirt: false,
+  });
+
+  const generateTabContent = () => {
+    switch (activeEditorTab) {
+      case 'colorpicker':
+        return <ColorPicker />;
+      case 'filepicker':
+        return <FilePicker />;
+      case 'aipicker':
+        return <AIPicker />;
+      default:
+        break;
+    }
+  };
+
   return (
     <AnimatePresence>
       {!snap.intro && (
@@ -34,10 +58,12 @@ const Customizer = () => {
                     key={index}
                     tab={tab}
                     icon={tab.icon}
-                    active={snap.activeEditorTab === tab.title}
-                    handleClick={() => (state.activeEditorTab = tab.title)}
+                    active={snap.activeEditorTab === tab.name}
+                    handleClick={() => setActiveEditorTab(tab.name)}
                   />
                 ))}
+
+                {generateTabContent()}
               </div>
             </div>
           </motion.div>
