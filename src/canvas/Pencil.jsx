@@ -2,15 +2,13 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { easing } from 'maath';
 import { useSnapshot } from 'valtio';
 import { useFrame } from '@react-three/fiber';
-import { Decal, useGLTF, useScroll, useTexture } from '@react-three/drei';
+import { useGLTF, useTexture } from '@react-three/drei';
 
 import state from '../store';
 
 const Shirt = () => {
   const snap = useSnapshot(state);
   const { nodes, materials } = useGLTF('/pencils-v5.glb');
-
-  const fullTexture = useTexture(snap.fullDecal);
 
   const rotate = useRef();
 

@@ -1,17 +1,23 @@
 import React from 'react';
 import { SketchPicker } from 'react-color';
 import { useSnapshot } from 'valtio';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 import state from '../store';
 
-const ColorPicker = () => {
+const ColorPicker = ({ colorType, tabTitle }) => {
   const snap = useSnapshot(state);
 
   return (
     <div className='absolute left-full ml-3'>
-      <div className='text-center'>Cover color</div>
+      <div className='colorpicker-container flex justify-between items-center px-2'>
+        <p className='text-center'>{tabTitle}</p>
+
+        <AiOutlineCloseCircle onClick={() => (state.colorPicker = false)} />
+      </div>
+
       <SketchPicker
-        color={snap.color}
+        color={colorType === 'color' ? snap.color : snap.textcolor}
         disableAlpha={true}
         presetColors={[
           '#000000',
@@ -23,7 +29,11 @@ const ColorPicker = () => {
           '#00ffff',
           '#ff00ff',
         ]}
-        onChange={(color) => (state.color = color.hex)}
+        onChange={
+          colorType === 'color'
+            ? (color) => (state.color = color.hex)
+            : (color) => (state.textcolor = color.hex)
+        }
       />
     </div>
   );

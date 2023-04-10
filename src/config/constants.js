@@ -1,9 +1,6 @@
 import {
   swatch,
   fileIcon,
-  ai,
-  logoShirt,
-  stylishShirt,
   num3,
   num6,
 } from '../assets';

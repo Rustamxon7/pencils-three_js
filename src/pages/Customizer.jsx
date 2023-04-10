@@ -2,27 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 
-import config from '../config/config';
 import state from '../store';
-import { download } from '../assets';
-import { downloadCanvasToImage, reader } from '../config/helpers';
 import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
-import {
-  AIPicker,
-  ColorPicker,
-  CustomButton,
-  FilePicker,
-  Tab,
-} from '../components';
+import { ColorPicker, CustomButton, Tab } from '../components';
 
 const Customizer = () => {
   const snap = useSnapshot(state);
 
-  const [file, setFile] = useState('');
-
-  const [prompt, setPrompt] = useState('');
-  const [generatingImg, setGeneratingImg] = useState(false);
+  console.log(snap.colorPicker);
 
   const [activeEditorTab, setActiveEditorTab] = useState('');
   const [activeFilterTab, setActiveFilterTab] = useState({
@@ -33,9 +21,17 @@ const Customizer = () => {
   const generateTabContent = () => {
     switch (activeEditorTab) {
       case 'colorpicker':
-        return <ColorPicker />;
+        return (
+          state.colorPicker && (
+            <ColorPicker colorType='color' tabTitle='Cover color' />
+          )
+        );
       case 'filepicker':
-        return <FilePicker />;
+        return (
+          state.colorPicker && (
+            <ColorPicker colorType='textcolor' tabTitle='Text color' />
+          )
+        );
       default:
         break;
     }
@@ -57,7 +53,10 @@ const Customizer = () => {
                     tab={tab}
                     icon={tab.icon}
                     active={snap.activeEditorTab === tab.name}
-                    handleClick={() => setActiveEditorTab(tab.name)}
+                    handleClick={() => {
+                      setActiveEditorTab(tab.name);
+                      state.colorPicker = true;
+                    }}
                     isActiveTab={activeEditorTab === tab.name}
                   />
                 ))}

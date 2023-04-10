@@ -2,7 +2,7 @@ import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, Center } from '@react-three/drei';
 
-import Shirt from './Shirt';
+import Pencil from './Pencil';
 import Backdrop from './Backdrop';
 import CameraRig from './CameraRig';
 import Pencils from './Pencils';
@@ -24,7 +24,7 @@ const CanvasModel = () => {
 
       <CameraRig>
         <Backdrop />
-        <Center>{snap.pencils === 'num3' ? <Shirt /> : <Pencils />}</Center>
+        <Center>{snap.pencils === 'num3' ? <Pencil /> : <Pencils />}</Center>
       </CameraRig>
     </Canvas>
   );
