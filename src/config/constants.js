@@ -11,7 +11,7 @@ export const EditorTabs = [
     icon: swatch,
   },
   {
-    name: 'filepicker',
+    name: 'textcolorpicker',
     icon: fileIcon,
   },
 ];

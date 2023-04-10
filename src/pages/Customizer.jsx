@@ -10,8 +10,6 @@ import { ColorPicker, CustomButton, Tab } from '../components';
 const Customizer = () => {
   const snap = useSnapshot(state);
 
-  console.log(snap.colorPicker);
-
   const [activeEditorTab, setActiveEditorTab] = useState('');
   const [activeFilterTab, setActiveFilterTab] = useState({
     num3: true,
@@ -22,13 +20,13 @@ const Customizer = () => {
     switch (activeEditorTab) {
       case 'colorpicker':
         return (
-          state.colorPicker && (
+          snap.colorPicker && (
             <ColorPicker colorType='color' tabTitle='Cover color' />
           )
         );
-      case 'filepicker':
+      case 'textcolorpicker':
         return (
-          state.colorPicker && (
+          snap.colorPicker && (
             <ColorPicker colorType='textcolor' tabTitle='Text color' />
           )
         );
