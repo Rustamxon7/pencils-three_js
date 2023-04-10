@@ -24,7 +24,10 @@ const Home = () => {
     }, 1500);
   };
 
-  window.addEventListener('load', loadCustomizer);
+  window.addEventListener('load', loadCustomizer)
+  setTimeout(() => {
+    setLoaded(true);
+  }, 1500);
 
   return (
     <AnimatePresence>
