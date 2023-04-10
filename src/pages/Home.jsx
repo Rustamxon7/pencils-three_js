@@ -59,13 +59,17 @@ const Home = () => {
                 Get yours with our <b>exclusive premium box</b>.
               </p>
 
-              {loaded && (
+              {loaded ? (
                 <CustomButton
                   type='filled'
                   title='Customize It'
                   handleClick={() => (state.intro = false)}
                   customStyles='w-fit px-4 py-2.5 font-bold text-sm'
                 />
+              ) : (
+                <span className='w-fit px-4 py-2.5 font-bold text-sm text-gray-400'>
+                  Loading...
+                </span>
               )}
             </motion.div>
           </motion.div>
