@@ -10,12 +10,17 @@ const Tab = ({ tab, isFilterTab, isActiveTab, handleClick }) => {
     isFilterTab && isActiveTab
       ? {
           backgroundColor: snap.color,
+
           opacity: 0.5,
+          transition: 'all 0.2s ease-in',
         }
       : {
           backgroundColor: 'transparent',
           opacity: 1,
+          transition: 'all 0.2s ease-in',
         };
+
+  activeStyles.transform = isActiveTab ? 'scale(1.1)' : 'scale(1)';
 
   return (
     <div
@@ -29,7 +34,7 @@ const Tab = ({ tab, isFilterTab, isActiveTab, handleClick }) => {
       <img
         src={tab.icon}
         alt={tab.name}
-        className={`${isFilterTab ? 'w-2/3 h-2/3' : 'w-11/12 h-11/12'}`}
+        className={`${isFilterTab ? 'w-3/4 h-3/4' : 'w-11/12 h-11/12'}`}
       />
     </div>
   );

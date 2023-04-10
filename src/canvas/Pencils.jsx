@@ -10,7 +10,6 @@ const Shirt = () => {
   const snap = useSnapshot(state);
   const { nodes, materials } = useGLTF('/pencils-6-v2.glb');
 
-  const logoTexture = useTexture(snap.logoDecal);
   const fullTexture = useTexture(snap.fullDecal);
 
   useFrame((state, delta) => {
@@ -78,39 +77,6 @@ const Shirt = () => {
       />
     </group>
   );
-
-  // return (
-  //   <group key={stateString}>
-  //     <mesh
-  //       castShadow
-  //       geometry={nodes.Cube.geometry}
-  //       material={materials.Material}
-  //       material-roughness={1}
-  //       dispose={null}
-  //     >
-  //       {/* {snap.isFullTexture && (
-  //         <Decal
-  //           position={[0, 0, 0]}
-  //           rotation={[0, 0, 0]}
-  //           scale={1}
-  //           map={fullTexture}
-  //         />
-  //       )}
-
-  //       {snap.isLogoTexture && (
-  //         <Decal
-  //           position={[0, 0.04, 0.15]}
-  //           rotation={[0, 0, 0]}
-  //           scale={[0.15, 0.12, 0.15]}
-  //           map={logoTexture}
-  //           map-anisotropy={16}
-  //           depthTest={false}
-  //           depthWrite={true}
-  //         />
-  //       )} */}
-  //     </mesh>
-  //   </group>
-  // );
 };
 
 export default Shirt;

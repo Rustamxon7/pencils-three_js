@@ -9,11 +9,11 @@ const CustomButton = ({ type, title, customStyles, handleClick }) => {
     if (type === 'filled') {
       return {
         backgroundColor: snap.color,
-        color: 'white',
+        color: snap.textcolor,
       };
     } else if (type === 'outlined') {
       return {
-        backgroundColor: 'white',
+        backgroundColor: snap.textcolor,
         color: snap.color,
         border: `1px solid ${snap.color}`,
       };

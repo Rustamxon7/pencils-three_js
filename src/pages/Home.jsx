@@ -31,9 +31,11 @@ const Home = () => {
           <motion.div className='home-content' {...headContainerAnimation}>
             <motion.div {...headTextAnimation}>
               <h1 className='head-text'>
-                LET'S
+                ELEVATE
                 <br />
-                PAINT
+                YOUR
+                <br />
+                WRITING
               </h1>
             </motion.div>
 
@@ -42,9 +44,9 @@ const Home = () => {
               className='flex flex-col gap-5'
             >
               <p className='max-w-md font-normal text-gray-600 text-base'>
-                Create your own 3D model and customize it with your own
-                textures. You can also download the model and use it in your own
-                projects.
+                Experience <b>precision and comfort</b> with our{' '}
+                <b>premium pencils</b>. Designed for <b>effortless writing</b>.
+                Get yours with our <b>exclusive premium box</b>.
               </p>
 
               <CustomButton

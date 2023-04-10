@@ -36,8 +36,6 @@ const Customizer = () => {
         return <ColorPicker />;
       case 'filepicker':
         return <FilePicker />;
-      case 'aipicker':
-        return <AIPicker />;
       default:
         break;
     }
@@ -48,7 +46,7 @@ const Customizer = () => {
       {!snap.intro && (
         <>
           <motion.div
-            className='absolute top-0 right-0 z-10'
+            className='absolute top-0 left-0 z-10'
             {...slideAnimation('left')}
           >
             <div className='flex items-center min-h-screen'>
@@ -60,6 +58,7 @@ const Customizer = () => {
                     icon={tab.icon}
                     active={snap.activeEditorTab === tab.name}
                     handleClick={() => setActiveEditorTab(tab.name)}
+                    isActiveTab={activeEditorTab === tab.name}
                   />
                 ))}
 

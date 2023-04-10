@@ -10,7 +10,9 @@ const FilePicker = () => {
   console.log('test');
 
   return (
-    <div className='absolute right-full mr-3'>
+    <div className='absolute left-full ml-3'>
+      <div className='text-center'>Text color</div>
+
       <SketchPicker
         color={snap.textcolor}
         disableAlpha={true}

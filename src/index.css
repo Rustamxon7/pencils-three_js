@@ -28,7 +28,7 @@ html {
 }
 
 .head-text {
-  @apply xl:text-[10rem] text-[6rem] xl:leading-[11rem] leading-[7rem] font-black text-black;
+  @apply xl:text-[7.2rem] text-[4.4rem] xl:leading-[8.6rem] leading-[5.2rem] font-black text-black;
 }
 
 .download-btn {
@@ -36,7 +36,7 @@ html {
 }
 
 .editortabs-container {
-  @apply glassmorphism w-16 border-[2px] rounded-lg flex flex-col justify-center items-center ml-1 py-4 gap-4;
+  @apply glassmorphism w-16 border-[2px] rounded-lg flex flex-col justify-center items-center ml-1 py-4 gap-4 px-9;
 }
 
 .filtertabs-container {
