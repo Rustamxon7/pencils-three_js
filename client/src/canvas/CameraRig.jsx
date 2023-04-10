@@ -12,28 +12,32 @@ const CameraRig = ({ children }) => {
     const isBreakpoint = window.innerWidth <= 1260;
     const isMobile = window.innerWidth <= 600;
 
-    let targetPosition = [-0.4, 0, 2];
+    let targetPosition = [-0.6, 0, 5];
     if (snap.intro) {
       if (isBreakpoint) {
-        targetPosition = [0, 0, 2];
+        targetPosition = [0, 0, 6.5];
       }
       if (isMobile) {
-        targetPosition = [0, 0.2, 2.5];
+        targetPosition = [0, 0, 6.5];
       }
     } else {
       if (isMobile) {
-        targetPosition = [0, 0, 2.5];
+        targetPosition = [0, 0, 5.5];
       } else {
-        targetPosition = [0, 0, 2.5];
+        if (snap.pencils === 'num3') {
+          targetPosition = [0, 0, 4.5];
+        } else {
+          targetPosition = [0, 0, 5.5];
+        }
       }
     }
 
     // set camera model position
-    easing.damp3(state.camera.position, targetPosition, 0.25, delta);
+    easing.damp3(state.camera.position, targetPosition, 0.15, delta);
 
     easing.dampE(
       group.current.rotation,
-      [state.pointer.y / 10, -state.pointer.x / 5, 0],
+      [state.pointer.y / 10, state.pointer.x / 10, 0],
       0.25,
       delta
     );

@@ -31,7 +31,9 @@ const Home = () => {
           <motion.div className='home-content' {...headContainerAnimation}>
             <motion.div {...headTextAnimation}>
               <h1 className='head-text'>
-                LET'S <span className='text-blue-500'>BUILD</span> SOMETHING
+                LET'S
+                <br />
+                PAINT
               </h1>
             </motion.div>
 

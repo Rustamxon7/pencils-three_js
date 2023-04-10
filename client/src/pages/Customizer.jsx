@@ -26,8 +26,8 @@ const Customizer = () => {
 
   const [activeEditorTab, setActiveEditorTab] = useState('');
   const [activeFilterTab, setActiveFilterTab] = useState({
-    logoShirt: true,
-    stylishShirt: false,
+    num3: true,
+    num6: false,
   });
 
   const generateTabContent = () => {
@@ -48,7 +48,7 @@ const Customizer = () => {
       {!snap.intro && (
         <>
           <motion.div
-            className='absolute top-0 left-0 z-10'
+            className='absolute top-0 right-0 z-10'
             {...slideAnimation('left')}
           >
             <div className='flex items-center min-h-screen'>
@@ -88,8 +88,11 @@ const Customizer = () => {
                 key={index}
                 tab={tab}
                 isFilterTab
-                isActiveTab=''
-                handleClick={() => {}}
+                isActiveTab={activeFilterTab[tab.name]}
+                handleClick={() => {
+                  setActiveFilterTab({ [tab.name]: true });
+                  state.pencils = tab.name;
+                }}
               />
             ))}
           </motion.div>

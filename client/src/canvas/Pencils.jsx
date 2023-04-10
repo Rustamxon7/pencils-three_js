@@ -1,19 +1,17 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React from 'react';
 import { easing } from 'maath';
 import { useSnapshot } from 'valtio';
 import { useFrame } from '@react-three/fiber';
-import { Decal, useGLTF, useScroll, useTexture } from '@react-three/drei';
+import { Decal, useGLTF, useTexture } from '@react-three/drei';
 
 import state from '../store';
 
 const Shirt = () => {
   const snap = useSnapshot(state);
-  const { nodes, materials } = useGLTF('/pencils-v5.glb');
+  const { nodes, materials } = useGLTF('/pencils-6-v2.glb');
 
   const logoTexture = useTexture(snap.logoDecal);
   const fullTexture = useTexture(snap.fullDecal);
-
-  const rotate = useRef();
 
   useFrame((state, delta) => {
     easing.dampC(materials.Material.color, snap.color, 0.25, delta);
@@ -22,59 +20,59 @@ const Shirt = () => {
   const stateString = JSON.stringify(snap);
 
   return (
-    <group key={stateString} scale={3} ref={rotate} rotation={[0, -1.6, 0]}>
-      <group scale={[0.76, 1, 1]}>
+    <group key={stateString} rotation={[0, -1.6, 0]} scale={3}>
+      <group position={[0, 2.97, -0.27]} scale={[0.76, 1, 1]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube_1.geometry}
+          geometry={nodes.Cube001_1.geometry}
           material={materials.Material}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cube_2.geometry}
+          geometry={nodes.Cube001_2.geometry}
           material={materials.Pencil}
         />
       </group>
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Text.geometry}
+        geometry={nodes.Text001.geometry}
         material={materials.Pencil}
-        position={[0.01, 2.82, 0]}
+        position={[0.01, 2.82, -0.25]}
         rotation={[Math.PI / 2, 0, -Math.PI / 2]}
         scale={0.04}
       />
-      <group position={[-0.02, 2.92, -0.01]} rotation={[2.44, 0, 0]}>
+      <group position={[-0.02, 2.92, -0.26]} rotation={[2.44, 0, 0]}>
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cylinder004.geometry}
+          geometry={nodes.Cylinder005.geometry}
           material={materials.Material}
         />
         <mesh
           castShadow
           receiveShadow
-          geometry={nodes.Cylinder004_1.geometry}
+          geometry={nodes.Cylinder005_1.geometry}
           material={materials.Pencil}
         />
       </group>
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Text003.geometry}
+        geometry={nodes.Text002.geometry}
         material={materials.Pencil}
-        position={[0.01, 3.03, 0]}
-        rotation={[1.57, 0, -1.57]}
-        scale={0.03}
+        position={[0.01, 3.05, -0.25]}
+        rotation={[2.69, 0, -1.57]}
+        scale={0.04}
       />
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Text005.geometry}
+        geometry={nodes.Text004.geometry}
         material={materials.Pencil}
-        position={[0.01, 2.9, 0]}
+        position={[0.01, 2.9, -0.25]}
         rotation={[1.57, 0, -1.57]}
         scale={0.0045}
       />

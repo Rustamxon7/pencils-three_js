@@ -5,23 +5,26 @@ import { Environment, Center } from '@react-three/drei';
 import Shirt from './Shirt';
 import Backdrop from './Backdrop';
 import CameraRig from './CameraRig';
+import Pencils from './Pencils';
+import { useSnapshot } from 'valtio';
+import state from '../store';
 
 const CanvasModel = () => {
+  const snap = useSnapshot(state);
+
   return (
     <Canvas
       shadows
-      camera={{ position: [0, 0, 0], fov: 40 }}
+      camera={{ position: [0, 0, 0], fov: 15 }}
       gl={{ preserveDrawingBuffer: true }}
-      className="w-full max-w-full h-full transition-all ease-in"
+      className='w-full max-w-full h-full transition-all ease-in'
     >
       <ambientLight intensity={0.5} />
-      <Environment preset='city' />
+      <Environment preset='warehouse' />
 
       <CameraRig>
         <Backdrop />
-        <Center>
-          <Shirt />
-        </Center>
+        <Center>{snap.pencils === 'num3' ? <Shirt /> : <Pencils />}</Center>
       </CameraRig>
     </Canvas>
   );

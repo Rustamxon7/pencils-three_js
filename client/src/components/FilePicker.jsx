@@ -1,7 +1,33 @@
 import React from 'react';
+import { SketchPicker } from 'react-color';
+import { useSnapshot } from 'valtio';
+
+import state from '../store';
 
 const FilePicker = () => {
-  return <div>FilePicker</div>;
+  const snap = useSnapshot(state);
+
+  console.log('test');
+
+  return (
+    <div className='absolute right-full mr-3'>
+      <SketchPicker
+        color={snap.textcolor}
+        disableAlpha={true}
+        presetColors={[
+          '#000000',
+          '#ffffff',
+          '#ff0000',
+          '#00ff00',
+          '#0000ff',
+          '#ffff00',
+          '#00ffff',
+          '#ff00ff',
+        ]}
+        onChange={(color) => (state.textcolor = color.hex)}
+      />
+    </div>
+  );
 };
 
 export default FilePicker;
