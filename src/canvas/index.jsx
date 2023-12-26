@@ -20,8 +20,8 @@ const CanvasModel = () => {
       className='w-full max-w-full h-full transition-all ease-in'
     >
       <ambientLight intensity={0.5} />
-      <Environment preset='warehouse' />
-
+      {/* <EnvironmentCube /> */}
+      <Environment files='./small_empty_room_3_1k.hdr' />
       <CameraRig>
         <Backdrop />
         <Center>{snap.pencils === 'num3' ? <Pencil /> : <Pencils />}</Center>
