@@ -57,7 +57,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://user-images.githubusercontent.com/69011963/232139710-2785891e-e611-42bc-a7cc-1160db7e1354.png)
+![Product Name Screen Shot](https://user-images.githubusercontent.com/69011963/232139710-2785891e-e611-42bc-a7cc-1160db7e1354.png)
 
 3D customizer for premium pencils using Three JS
 
